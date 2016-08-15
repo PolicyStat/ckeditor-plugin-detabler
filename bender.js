@@ -28,7 +28,7 @@ var config = {
         ckeditor: {
             path: '.',
             files: [
-                'ckeditor.js'
+                'ckeditor/ckeditor.js'
             ]
         }
     },
