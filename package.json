@@ -1,0 +1,24 @@
+{
+  "name": "ckeditor-plugin-detabler",
+  "version": "1.0.0",
+  "description": "CKEditor de-table plugin",
+  "main": " ",
+  "scripts": {
+    "test": "bender server run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caffodian/ckeditor-plugin-detabler.git"
+  },
+  "keywords": [
+    "ckeditor",
+    "plugin",
+    "tables"
+  ],
+  "author": "Alex Tsai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caffodian/ckeditor-plugin-detabler/issues"
+  },
+  "homepage": "https://github.com/caffodian/ckeditor-plugin-detabler#readme"
+}
