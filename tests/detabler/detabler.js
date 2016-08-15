@@ -18,7 +18,7 @@
                     '<table><tbody><td>leave me alone</td></tbody></table>';
 
             this.editorBot.setHtmlWithSelection(
-                html
+                input
             );
 
             editor.execCommand( 'detable' );
