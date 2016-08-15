@@ -43,11 +43,12 @@ var config = {
     ],
 
     tests: {
-        nanospell: {
+        detabler: {
             applications: ['ckeditor'],
             basePath: 'tests/',
             paths: [
                 'smoke/**',
+                'detabler/**',
                 '!**/_*/**'
             ],
             // Latest of the old API (1.8.3)

@@ -2,6 +2,11 @@
 /* bender-ckeditor-plugins: detabler */
 
 (function() {
+    bender.editor = {
+        config: {
+            enterMode: CKEDITOR.ENTER_P
+        }
+    };
     bender.test({
         assertHtml: function( expected, actual, msg ) {
 		    assert.areEqual( bender.tools.fixHtml( expected ), bender.tools.fixHtml( actual ), msg );
