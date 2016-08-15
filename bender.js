@@ -28,7 +28,7 @@ var config = {
         ckeditor: {
             path: '.',
             files: [
-                'ckeditor/ckeditor.js'
+                'ckeditor.js',
             ]
         }
     },
@@ -44,7 +44,7 @@ var config = {
 
     tests: {
         nanospell: {
-            applications: [ 'ckeditor' ],
+            applications: ['ckeditor'],
             basePath: 'tests/',
             paths: [
                 'smoke/**',
@@ -53,7 +53,7 @@ var config = {
             // Latest of the old API (1.8.3)
             // Latest of the 1.* branch
             // Latest of the 2.* branch
-            jQuery: [ '1.8.3', '1.11.1', '2.1.1' ]
+            jQuery: ['1.8.3', '1.11.1', '2.1.1']
         }
     }
 
