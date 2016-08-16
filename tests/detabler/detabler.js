@@ -85,7 +85,7 @@
 						'<tr><td><p>^foo</p></td><td>bar</td></tr>' +
 					'</tbody>' +
 				'</table>';
-			endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
+			endHtml = '<p>foo</p><p>bar</p>';
 
 			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
@@ -107,7 +107,7 @@
 						'<tr><td><p>^foo</p><p>bar</p></td></tr>' +
 				'</tbody>' +
 			'</table>';
-			endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
+			endHtml = '<p>foo</p><p>bar</p>';
 
 			this.editorBot.setHtmlWithSelection(startHtml);
 
