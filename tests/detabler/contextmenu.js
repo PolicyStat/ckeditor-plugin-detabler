@@ -41,9 +41,7 @@
 					'</tbody>' +
 				'</table>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -61,9 +59,7 @@
 					'</tbody>' +
 				'</table>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
