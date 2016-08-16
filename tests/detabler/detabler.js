@@ -168,7 +168,7 @@
             startHtml = '<table>' +
 				'<tbody>' +
 					'<tr><td>' +
-					'	<table>' +
+						'<table>' +
 							'<tbody>' +
 								'<tr><td>^foo</td><td>bar</td></tr>' +
 							'</tbody>' +
