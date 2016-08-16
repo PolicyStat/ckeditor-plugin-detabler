@@ -10,26 +10,23 @@
 						table,
 						cells,
 						currentCell,
-						currentCellChildren,
 						currentItem;
 
 					path = editor.elementPath();
 					table = path.contains('table');
 
 					if (table) {
-						table.$.normalize();
+						table.$.normalize(); // we don't want to deal with un-merged text nodes here.
 						cells = table.find('td, th');
 						for (var i = 0; i < cells.count(); i++) {
 							currentCell = cells.getItem(i);
-							currentCellChildren = currentCell.getChildren();
-							for (var j = 0; j < currentCellChildren.count(); j++) {
-								currentItem = currentCellChildren.getItem(j);
 
+							while (currentItem = currentCell.getChild(0)) {
 								// we should manually wrap the text nodes in p tags
 								// otherwise we are at the mercy of HTML autofixing
 								// and neighboring cell content may get merged into the same p
 								if (currentItem.type === CKEDITOR.NODE_TEXT) {
-									var wrapper = new CKEDITOR.dom.element( 'p' );
+									var wrapper = new CKEDITOR.dom.element('p');
 									currentItem.appendTo(wrapper);
 									currentItem = wrapper;
 								}
