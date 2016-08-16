@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caffodian/ckeditor-plugin-detabler.git"
+    "url": "git+https://github.com/PolicyStat/ckeditor-plugin-detabler.git"
   },
   "keywords": [
     "ckeditor",
@@ -18,9 +18,9 @@
   "author": "Alex Tsai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/caffodian/ckeditor-plugin-detabler/issues"
+    "url": "https://github.com/PolicyStat/ckeditor-plugin-detabler/issues"
   },
-  "homepage": "https://github.com/caffodian/ckeditor-plugin-detabler#readme",
+  "homepage": "https://github.com/PolicyStat/ckeditor-plugin-detabler#readme",
   "devDependencies": {
     "benderjs": "^0.4.1",
     "benderjs-ckeditor": "^0.1.0",
