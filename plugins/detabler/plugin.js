@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    CKEDITOR.plugins.add('detabler', {
+	CKEDITOR.plugins.add('detabler', {
 		requires: 'table,contextmenu',
 		init: function (editor) {
 			editor.addCommand('detable', {
@@ -19,12 +19,12 @@
 						table.$.normalize(); // we don't want to deal with un-merged text nodes here.
 						cells = table.find('td, th');
 						// loop through all cell-like items
-						for (var i = 0; i < cells.count(); i++) {
+						for (var i = 0; i < cells.count(); ++i) {
 							currentCell = cells.getItem(i);
 
-							// we can't iterate through the children nodeList here
-							// because this while loop removes items from children 1 by 1
-							while (currentItem = currentCell.getChild(0)) {
+							// we can't use a for loop through `getChildren()`
+							// because we remove children as part of this loop
+							while ((currentItem = currentCell.getChild(0)) !== null) {
 								// we should manually wrap the text nodes in p tags
 								// otherwise we are at the mercy of HTML autofixing
 								// and neighboring cell content may get merged into the same p
@@ -60,7 +60,7 @@
 
 				editor.contextMenu.addListener(function (element) {
 					if (element.getAscendant('table', true)) {
-						return { detable: CKEDITOR.TRISTATE_OFF };
+						return {detable: CKEDITOR.TRISTATE_OFF};
 					}
 				});
 			}
