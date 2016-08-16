@@ -31,9 +31,9 @@
             endHtml = '<p>foobar</p>' +
                 '<p>baz</p>' +
                 '<table>' +
-				'	<tbody>' +
-				'		<tr><td>leave me alone</td></tr>' +
-			'		</tbody>' +
+					'<tbody>' +
+						'<tr><td>leave me alone</td></tr>' +
+					'</tbody>' +
 				'</table>';
 
             this.editorBot.setHtmlWithSelection(
@@ -56,9 +56,9 @@
 
             startHtml = '<p>foo</p>' +
 				'<table>' +
-				'	<tbody>' +
-				'		<tr><td>^foo</td><td>bar</td></tr>' +
-				'	</tbody>' +
+					'<tbody>' +
+						'<tr><td>^foo</td><td>bar</td></tr>' +
+					'</tbody>' +
 				'</table>';
 			startHtmlWithoutSelection = '<p>foo</p><table><tbody><tr><td>foo</td><td>bar</td></tr></tbody></table>';
             endHtml = '<p>foo</p><p>foo</p><p>bar</p>';
@@ -86,7 +86,7 @@
 
             startHtml = '<table>' +
 					'<tbody>' +
-				'		<tr><td><p>^foo</p></td><td>bar</td></tr>' +
+						'<tr><td><p>^foo</p></td><td>bar</td></tr>' +
 					'</tbody>' +
 				'</table>';
             endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
@@ -110,7 +110,7 @@
 
             startHtml = '<table>' +
 					'<tbody>' +
-					'	<tr><td><p>^foo</p><p>bar</p></td></tr>' +
+						'<tr><td><p>^foo</p><p>bar</p></td></tr>' +
 				'</tbody>' +
 			'</table>';
             endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
