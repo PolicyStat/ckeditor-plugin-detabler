@@ -18,9 +18,12 @@
 					if (table) {
 						table.$.normalize(); // we don't want to deal with un-merged text nodes here.
 						cells = table.find('td, th');
+						// loop through all cell-like items
 						for (var i = 0; i < cells.count(); i++) {
 							currentCell = cells.getItem(i);
 
+							// we can't iterate through the children nodeList here
+							// because this while loop removes items from children 1 by 1
 							while (currentItem = currentCell.getChild(0)) {
 								// we should manually wrap the text nodes in p tags
 								// otherwise we are at the mercy of HTML autofixing

@@ -32,7 +32,11 @@
 
             startHtml = '<p>foobar^</p>' +
                 '<p>baz</p>' +
-                '<table><tbody><tr><td>leave me alone</td></tr></tbody></table>';
+                '<table>' +
+					'<tbody>' +
+						'<tr><td>leave me alone</td></tr>' +
+					'</tbody>' +
+				'</table>';
 
             this.editorBot.setHtmlWithSelection(
                 startHtml
@@ -47,7 +51,12 @@
             var editor = this.editorBot.editor,
                 startHtml;
 
-            startHtml = '<p>foo</p><table><tbody><tr><td>^foo</td><td>bar</td></tr></tbody></table>';
+            startHtml = '<p>foo</p>' +
+				'<table>' +
+					'<tbody>' +
+						'<tr><td>^foo</td><td>bar</td></tr>' +
+					'</tbody>' +
+				'</table>';
 
             this.editorBot.setHtmlWithSelection(
                 startHtml
