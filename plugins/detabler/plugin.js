@@ -9,7 +9,8 @@
 					var path,
 						table,
 						cells,
-						currentCell;
+						currentCell,
+						currentCellChildren;
 
 					path = editor.elementPath();
 					table = path.contains('table');
@@ -18,8 +19,10 @@
 						cells = table.find('td, th');
 						for (var i = 0; i < cells.count(); i++) {
 							currentCell = cells.getItem(i);
-							currentCell.renameNode('p');
-							currentCell.insertBefore(table);
+							currentCellChildren = currentCell.getChildren();
+							for (var j = 0; j < currentCellChildren.count(); j++) {
+								currentCellChildren.getItem(j).insertBefore(table);
+							}
 						}
 						table.remove();
 					}
