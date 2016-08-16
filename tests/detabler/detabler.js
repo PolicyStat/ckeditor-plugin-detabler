@@ -65,5 +65,26 @@
 
 			this.assertHtml(startHtmlWithoutSelection, editor.getData(), 'Editor data does not match after being undone.');
         },
+		'it only removes the table the selection is in': function () {
+            var editor = this.editorBot.editor,
+                startHtml,
+				startHtmlWithoutSelection,
+                endHtml;
+
+            startHtml = '<table><tbody><tr><td><table><tbody><tr><td>^foo</td><td>bar</td></tr></tbody></table></td></tbody></table>';
+            endHtml = '<table><tbody><tr><td><p>foo</p><p>bar</p></td></tr></tbody></table>';
+
+            this.editorBot.setHtmlWithSelection(
+                startHtml
+            );
+			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
+			this.command.refresh(editor, editor.elementPath());
+
+			assert.areEqual(CKEDITOR.TRISTATE_ON, this.command.state);
+
+            editor.execCommand('detable');
+
+            this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
+        },
     });
 })();
