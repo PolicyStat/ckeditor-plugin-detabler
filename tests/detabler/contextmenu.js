@@ -18,9 +18,12 @@
 			editor.contextMenu.open(editor.editable());
 
 			var itemExists = false;
-			for (var i = 0; i < editor.contextMenu.items.length; ++i)
-				if (editor.contextMenu.items[i].command == 'detable')
+			for (var i = 0; i < editor.contextMenu.items.length; ++i) {
+				if (editor.contextMenu.items[i].command == 'detable') {
 					itemExists = true;
+					break;
+				}
+			}
 
 			editor.contextMenu.hide();
 
@@ -31,8 +34,8 @@
                 startHtml;
 
             startHtml = '<p>foobar^</p>' +
-                '<p>baz</p>' +
-                '<table>' +
+				'<p>baz</p>' +
+				'<table>' +
 					'<tbody>' +
 						'<tr><td>leave me alone</td></tr>' +
 					'</tbody>' +
@@ -58,9 +61,9 @@
 					'</tbody>' +
 				'</table>';
 
-            this.editorBot.setHtmlWithSelection(
-                startHtml
-            );
+			this.editorBot.setHtmlWithSelection(
+				startHtml
+			);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
