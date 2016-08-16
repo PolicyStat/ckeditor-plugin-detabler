@@ -1,5 +1,5 @@
 /* bender-tags: editor,unit */
-/* bender-ckeditor-plugins: detabler */
+/* bender-ckeditor-plugins: contextmenu,detabler */
 
 (function () {
     bender.editor = {
