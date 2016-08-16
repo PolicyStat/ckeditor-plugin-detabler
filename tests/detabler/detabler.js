@@ -30,6 +30,8 @@
             this.editorBot.setHtmlWithSelection(
                 startHtml
             );
+			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
+			this.command.refresh(editor, editor.elementPath());
 
 			assert.areEqual(CKEDITOR.TRISTATE_OFF, this.command.state);
 
@@ -50,6 +52,8 @@
             this.editorBot.setHtmlWithSelection(
                 startHtml
             );
+			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
+			this.command.refresh(editor, editor.elementPath());
 
 			assert.areEqual(CKEDITOR.TRISTATE_ON, this.command.state);
 
@@ -59,7 +63,7 @@
 
 			editor.execCommand('undo');
 
-			this.assertHtml(startHtmlWithoutSelection, editor.getdata(), 'Editor data does not match after being undone.');
+			this.assertHtml(startHtmlWithoutSelection, editor.getData(), 'Editor data does not match after being undone.');
         },
     });
 })();

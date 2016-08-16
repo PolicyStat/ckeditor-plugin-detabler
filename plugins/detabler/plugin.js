@@ -5,7 +5,23 @@
 		init: function (editor) {
 			editor.addCommand('detable', {
 				exec: function (editor) {
-					//alert( 'Executing a command for the editor name "' + editor.name + '"!' );
+					var path,
+						table,
+						cells,
+						currentCell;
+
+					path = editor.elementPath();
+					table = path.contains('table');
+
+					if (table) {
+						cells = table.find('td, th');
+						for (var i=0; i < cells.count(); i++) {
+							currentCell = cells.getItem(i);
+							currentCell.renameNode('p');
+							currentCell.insertBefore(table);
+						}
+						table.remove();
+					}
 				},
 				refresh: function (editor, path) {
 					if (this.state !== CKEDITOR.TRISTATE_DISABLED) {
