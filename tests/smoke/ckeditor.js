@@ -19,6 +19,6 @@
 		'test it loads with the plugin enabled': function () {
 			CKEDITOR.replace('editor1');
 			assert.isObject(CKEDITOR.instances.editor1, 'editor instance not found');
-		},
+		}
 	});
 })();
