@@ -36,9 +36,7 @@
 					'</tbody>' +
 				'</table>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -63,9 +61,7 @@
 			startHtmlWithoutSelection = '<p>foo</p><table><tbody><tr><td>foo</td><td>bar</td></tr></tbody></table>';
 			endHtml = '<p>foo</p><p>foo</p><p>bar</p>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -91,9 +87,7 @@
 				'</table>';
 			endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -115,9 +109,8 @@
 			'</table>';
 			endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
+
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -141,9 +134,7 @@
 				'</table>';
 			endHtml = '<p>foo</p><p>bar</p>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 
 			// split foo and bar
 
@@ -182,9 +173,7 @@
 					'</tbody>' +
 				'</table>';
 
-			this.editorBot.setHtmlWithSelection(
-				startHtml
-			);
+			this.editorBot.setHtmlWithSelection(startHtml);
 			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
 			this.command.refresh(editor, editor.elementPath());
 
@@ -193,6 +182,6 @@
 			editor.execCommand('detable');
 
 			this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
-		},
+		}
 	});
 })();
