@@ -10,18 +10,30 @@
 						table,
 						cells,
 						currentCell,
-						currentCellChildren;
+						currentCellChildren,
+						currentItem;
 
 					path = editor.elementPath();
 					table = path.contains('table');
 
 					if (table) {
+						table.$.normalize();
 						cells = table.find('td, th');
 						for (var i = 0; i < cells.count(); i++) {
 							currentCell = cells.getItem(i);
 							currentCellChildren = currentCell.getChildren();
 							for (var j = 0; j < currentCellChildren.count(); j++) {
-								currentCellChildren.getItem(j).insertBefore(table);
+								currentItem = currentCellChildren.getItem(j);
+
+								// we should manually wrap the text nodes in p tags
+								// otherwise we are at the mercy of HTML autofixing
+								// and neighboring cell content may get merged into the same p
+								if (currentItem.type === CKEDITOR.NODE_TEXT) {
+									var wrapper = new CKEDITOR.dom.element( 'p' );
+									currentItem.appendTo(wrapper);
+									currentItem = wrapper;
+								}
+								currentItem.insertBefore(table);
 							}
 						}
 						table.remove();

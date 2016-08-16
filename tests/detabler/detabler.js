@@ -2,6 +2,7 @@
 /* bender-ckeditor-plugins: contextmenu,detabler */
 
 (function () {
+	'use strict';
     bender.editor = {
         config: {
             enterMode: CKEDITOR.ENTER_P
@@ -85,6 +86,34 @@
 
             this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
         },
+		'it does not break up un-normalized text nodes': function() {
+			// this case is pretty ugly to set up, since you can't express neighboring textnodes as a string.
+			var editor = this.editorBot.editor,
+                startHtml,
+                endHtml,
+				tds;
+
+			startHtml = '<table><tbody><tr><td>^foo</td><td>bar</td></tr></tbody></table>';
+			endHtml = '<p>foo</p><p>bar</p>';
+
+			this.editorBot.setHtmlWithSelection(
+                startHtml
+            );
+
+			// split foo and bar
+
+			tds = editor.document.find('td');
+			tds.getItem(0).getChild(0).split(1);
+			tds.getItem(1).getChild(0).split(2);
+
+			this.command.refresh(editor, editor.elementPath());
+
+			assert.areEqual(CKEDITOR.TRISTATE_ON, this.command.state);
+
+            editor.execCommand('detable');
+
+            this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
+		},
 		'it only removes the table the selection is in': function () {
             var editor = this.editorBot.editor,
                 startHtml,

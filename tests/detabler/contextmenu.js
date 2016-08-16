@@ -2,6 +2,7 @@
 /* bender-ckeditor-plugins: contextmenu,detabler */
 
 (function () {
+	'use strict';
     bender.editor = {
         config: {
             enterMode: CKEDITOR.ENTER_P
@@ -12,6 +13,8 @@
 			this.command = this.editorBot.editor.getCommand('detable');
 		},
 		contextMenuItemIsPresent: function (editor) {
+			// open and close the context menu, and return true if the detable option was present.
+
 			editor.contextMenu.open(editor.editable());
 
 			var itemExists = false;
