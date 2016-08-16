@@ -86,7 +86,27 @@
 
             this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
         },
-		'it does not break up un-normalized text nodes': function() {
+		'it handles multiple non-text children in the same cell': function () {
+			var editor = this.editorBot.editor,
+                startHtml,
+                endHtml;
+
+            startHtml = '<table><tbody><tr><td><p>^foo</p><p>bar</p></td></tr></tbody></table>';
+            endHtml = '<p>foo</p><p>bar</p>'; // the p tag for bar gets created because you can't have a parentless text node
+
+            this.editorBot.setHtmlWithSelection(
+                startHtml
+            );
+			// setHtmlWithSelection doesn't appear to refresh command state, so we must manually do it
+			this.command.refresh(editor, editor.elementPath());
+
+			assert.areEqual(CKEDITOR.TRISTATE_ON, this.command.state);
+
+            editor.execCommand('detable');
+
+            this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
+		},
+		'it does not break up un-normalized text nodes': function () {
 			// this case is pretty ugly to set up, since you can't express neighboring textnodes as a string.
 			var editor = this.editorBot.editor,
                 startHtml,
