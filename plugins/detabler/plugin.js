@@ -4,6 +4,8 @@
 	CKEDITOR.plugins.add('detabler', {
 		requires: 'table,contextmenu',
 		init: function (editor) {
+			var BLOCK_TAG_NAME = 'p';
+
 			editor.addCommand('detable', {
 				exec: function (editor) {
 					var path,
@@ -30,8 +32,8 @@
 							// we should manually wrap the text nodes in p tags
 							// otherwise we are at the mercy of HTML autofixing
 							// and neighboring cell content may get merged into the same p
-							if (currentItem.type === CKEDITOR.NODE_TEXT) {
-								var wrapper = new CKEDITOR.dom.element('p');
+							if (currentItem.type !== CKEDITOR.NODE_ELEMENT || currentItem.getName() !== BLOCK_TAG_NAME) {
+								var wrapper = new CKEDITOR.dom.element(BLOCK_TAG_NAME);
 								currentItem.appendTo(wrapper);
 								currentItem = wrapper;
 							}
