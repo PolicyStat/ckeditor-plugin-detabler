@@ -150,6 +150,27 @@
 
 			this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
 		},
+		'it wraps other elements in p tags': function () {
+			var editor = this.editorBot.editor,
+				startHtml,
+				endHtml,
+				tds;
+
+			startHtml = '<table>' +
+				'<tbody>' +
+				'<tr><td><strong>^foo</strong></td><td><em>bar</em></td></tr>' +
+				'</tbody>' +
+				'</table>';
+			endHtml = '<p><strong>foo</strong></p><p><em>bar</em></p>';
+
+			this.editorBot.setHtmlWithSelection(startHtml);
+
+			this.command.refresh(editor, editor.elementPath());
+
+			editor.execCommand('detable');
+
+			this.assertHtml(endHtml, editor.getData(), 'Editor data does not match.');
+		},
 		'it only removes the table the selection is in': function () {
 			var editor = this.editorBot.editor,
 				startHtml,
