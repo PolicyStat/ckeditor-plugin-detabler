@@ -28,7 +28,6 @@
     "benderjs-jquery": "^0.3.0",
     "benderjs-sinon": "^0.3.1",
     "benderjs-yui": "^0.3.3",
-    "ckeditor": "4.5.10",
-    "phantomjs": "1.9.7"
+    "ckeditor": "4.5.10"
   }
 }
