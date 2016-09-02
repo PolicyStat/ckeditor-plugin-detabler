@@ -29,6 +29,6 @@
     "benderjs-sinon": "^0.3.1",
     "benderjs-yui": "^0.3.3",
     "ckeditor": "4.5.10",
-    "phantomjs-prebuilt": "^2.1.12"
+    "phantomjs": "1.9.7"
   }
 }
