@@ -4,7 +4,7 @@
   "description": "CKEditor de-table plugin",
   "main": " ",
   "scripts": {
-    "test": "bender run -l && bender run -b firefox"
+    "test": "bender run -l && bender run"
   },
   "repository": {
     "type": "git",
